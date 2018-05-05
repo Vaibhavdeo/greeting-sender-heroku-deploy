@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import com.programmer.greeting.constants.AppConstants;
+import com.programmer.greeting.exception.GreetingServiceException;
 import com.programmer.greeting.exception.UserNotFoundException;
 import com.programmer.greeting.mapper.GreetingDetailsMapper;
 import com.programmer.greeting.sender.beans.GreetingDetails;
@@ -16,9 +17,10 @@ import com.programmer.greeting.sender.beans.ResponseMessgae;
 public class GreetingDao implements IGreetingDao {
 	@Autowired
 	private DataSource dataSource;
-	private JdbcTemplate jdbcTemplateObject;
 	@Autowired
 	private ResponseMessgae response;
+	private JdbcTemplate jdbcTemplateObject;
+	
 
 	@Override
 	public void setDataSource(DataSource ds) {
@@ -43,16 +45,14 @@ public class GreetingDao implements IGreetingDao {
 
 	@Override
 	public GreetingDetails getGreetingDetails(Integer id) {
-		GreetingDetails greetingDetails = null;
 		try{
-		System.out.println("Inside method GETgREETINGdETAILS of Greeting Dao" + id);
 		setDataSource(dataSource);
-		greetingDetails = (GreetingDetails) jdbcTemplateObject.queryForObject(AppConstants.GET_DETAILS_QUERY,
+		return (GreetingDetails) jdbcTemplateObject.queryForObject(AppConstants.GET_DETAILS_QUERY,
 				new Object[] { id }, new GreetingDetailsMapper());
-		}catch(Exception e){
-			throw new UserNotFoundException("id -"+id);
 		}
-		return greetingDetails;
+		catch(Exception e){
+			throw new UserNotFoundException("Hello");
+		}
 	}
 
 	@Override
@@ -87,7 +87,7 @@ public class GreetingDao implements IGreetingDao {
 			System.out.println("Updated Record with ID = " + greetingDetails.getgId());
 		});
 		}catch(Exception e){
-			throw new UserNotFoundException("Id - "+detailsList);
+			throw new GreetingServiceException("Id - "+detailsList);
 		}
 
 		response.setMessgae("Success");
