@@ -35,7 +35,7 @@ public class GreetingDao implements IGreetingDao {
 		setDataSource(dataSource);
 		detailsList.forEach(greetingDetails -> {
 			jdbcTemplateObject.update(AppConstants.INSERT_QUERY, greetingDetails.getgId(), greetingDetails.getDate(),
-					greetingDetails.getSubject(), greetingDetails.getName());
+					greetingDetails.getSubject(), greetingDetails.getName(),greetingDetails.getMailId());
 		});
 
 		response.setMessgae("Success");
@@ -83,7 +83,7 @@ public class GreetingDao implements IGreetingDao {
 		setDataSource(dataSource);
 		detailsList.forEach(greetingDetails -> {
 			jdbcTemplateObject.update(AppConstants.UPDATE_QUERY, greetingDetails.getDate(), greetingDetails.getName(),
-					greetingDetails.getSubject(), greetingDetails.getgId());
+					greetingDetails.getSubject(), greetingDetails.getMailId(), greetingDetails.getgId());
 			System.out.println("Updated Record with ID = " + greetingDetails.getgId());
 		});
 		}catch(Exception e){
