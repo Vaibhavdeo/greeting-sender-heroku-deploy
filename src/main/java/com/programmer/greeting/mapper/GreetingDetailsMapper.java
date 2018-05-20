@@ -16,6 +16,7 @@ public class GreetingDetailsMapper implements RowMapper<GreetingDetails>{
 		details.setDate(rs.getString("SP_DATE"));
 		details.setName(rs.getString("name"));
 		details.setSubject(rs.getString("subject"));
+		details.setMailId(rs.getString("mailId"));
 		
 		return details;
 	}

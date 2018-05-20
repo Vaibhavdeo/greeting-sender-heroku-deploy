@@ -9,8 +9,15 @@ public class GreetingDetails {
 	private String name;
 	private String subject;
 	private String date;
+	private String mailId;
 	
 	
+	public String getMailId() {
+		return mailId;
+	}
+	public void setMailId(String mailId) {
+		this.mailId = mailId;
+	}
 	public Integer getgId() {
 		return gId;
 	}
@@ -35,11 +42,12 @@ public class GreetingDetails {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	
 	@Override
 	public String toString() {
-		return "GreetingDetails [gId=" + gId + ", name=" + name + ", subject=" + subject + ", date=" + date + "]";
+		return "GreetingDetails [gId=" + gId + ", name=" + name + ", subject=" + subject + ", date=" + date
+				+ ", mailId=" + mailId + "]";
 	}
+	
 	
 	
 	

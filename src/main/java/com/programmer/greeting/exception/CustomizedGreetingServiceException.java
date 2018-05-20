@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -15,6 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestController
 public class CustomizedGreetingServiceException extends ResponseEntityExceptionHandler{
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@ExceptionHandler(Exception.class)
 	public final ResponseEntity<Object> handleAllException(Exception ex, WebRequest request){
 		
@@ -24,6 +24,7 @@ public class CustomizedGreetingServiceException extends ResponseEntityExceptionH
 		
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@ExceptionHandler(UserNotFoundException.class)
 	public final ResponseEntity<Object> handleUserNotFoundException(Exception ex, WebRequest request){
 		
