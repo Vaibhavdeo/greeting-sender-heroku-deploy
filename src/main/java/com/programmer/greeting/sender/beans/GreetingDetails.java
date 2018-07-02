@@ -1,17 +1,26 @@
 package com.programmer.greeting.sender.beans;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Component
+@Entity
+@Table(name="GREETINGDETAILS")
 public class GreetingDetails {
-	
+
+	@Id
+	@GeneratedValue
 	private Integer gId;
 	private String name;
 	private String subject;
+	@Column(name="SP_DATE")
 	private String date;
+	@Column(name="MAIL_Id")
 	private String mailId;
-	
-	
+
+
 	public String getMailId() {
 		return mailId;
 	}
@@ -47,10 +56,10 @@ public class GreetingDetails {
 		return "GreetingDetails [gId=" + gId + ", name=" + name + ", subject=" + subject + ", date=" + date
 				+ ", mailId=" + mailId + "]";
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 
 }
