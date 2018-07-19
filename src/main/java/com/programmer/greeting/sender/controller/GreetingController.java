@@ -14,6 +14,7 @@ import com.programmer.greeting.sender.beans.GreetingDetails;
 import com.programmer.greeting.sender.beans.ResponseMessgae;
 import com.programmer.greeting.sender.service.GreetingSenderService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class GreetingController {
 	@Autowired
