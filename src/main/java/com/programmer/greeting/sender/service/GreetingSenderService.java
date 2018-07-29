@@ -47,7 +47,7 @@ public class GreetingSenderService {
     	
     }
     
-    public ResponseMessgae updateDetails(List<GreetingDetails> detailsList){
+    public ResponseMessgae updateDetails(GreetingDetails detailsList){
 		return greetingDao.update(detailsList);
     	
     }
