@@ -55,7 +55,7 @@ public class GreetingController {
 	}
 	
 	@RequestMapping(value = "/updateDetails", method = RequestMethod.PUT)
-	public  ResponseMessgae updateDetails(@RequestBody List<GreetingDetails> detailsList) {
+	public  ResponseMessgae updateDetails(@RequestBody GreetingDetails detailsList) {
 		if (!detailsList.isEmpty()) {
 			return greetingService.updateDetails(detailsList);
 		}
