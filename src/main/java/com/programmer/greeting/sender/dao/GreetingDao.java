@@ -78,14 +78,12 @@ public class GreetingDao implements IGreetingDao {
 	}
 
 	@Override
-	public ResponseMessgae update(List<GreetingDetails> detailsList) {
+	public ResponseMessgae update(GreetingDetails detailsList) {
 		try{
 		setDataSource(dataSource);
-		detailsList.forEach(greetingDetails -> {
-			jdbcTemplateObject.update(AppConstants.UPDATE_QUERY, greetingDetails.getDate(), greetingDetails.getName(),
-					greetingDetails.getSubject(), greetingDetails.getMailId(), greetingDetails.getgId());
-			System.out.println("Updated Record with ID = " + greetingDetails.getgId());
-		});
+			jdbcTemplateObject.update(AppConstants.UPDATE_QUERY, detailsList.getDate(), detailsList.getName(),
+					detailsList.getSubject(), detailsList.getMailId(), detailsList.getgId());
+			System.out.println("Updated Record with ID = " + detailsList.getgId());
 		}catch(Exception e){
 			throw new GreetingServiceException("Id - "+detailsList);
 		}
