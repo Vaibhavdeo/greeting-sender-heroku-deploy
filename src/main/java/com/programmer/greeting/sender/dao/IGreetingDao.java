@@ -42,6 +42,6 @@ public interface IGreetingDao {
 	/**
 	 * This is the method to be used to update a record into the GreetingDetails table.
 	 */
-	public ResponseMessgae update(List<GreetingDetails> detailsList);
+	public ResponseMessgae update(GreetingDetails detailsList);
 
 }
