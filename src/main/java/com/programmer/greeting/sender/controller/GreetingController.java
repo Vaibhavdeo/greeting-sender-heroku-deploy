@@ -14,7 +14,7 @@ import com.programmer.greeting.sender.beans.GreetingDetails;
 import com.programmer.greeting.sender.beans.ResponseMessgae;
 import com.programmer.greeting.sender.service.GreetingSenderService;
 
-@CrossOrigin(origins = * )
+@CrossOrigin
 @RestController
 public class GreetingController {
 	@Autowired
