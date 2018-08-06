@@ -20,7 +20,7 @@ public class GreetingDao implements IGreetingDao {
 	@Autowired
 	private ResponseMessgae response;
 	private JdbcTemplate jdbcTemplateObject;
-	
+
 
 	@Override
 	public void setDataSource(DataSource ds) {
@@ -79,6 +79,9 @@ public class GreetingDao implements IGreetingDao {
 
 	@Override
 	public ResponseMessgae update(GreetingDetails detailsList) {
+//ON DUPLICATE KEY UPDATE GreetingDetails SET (SP_DATE = ?, name = ?, subject = ?, mail_Id = ?)";
+
+		//String query = "INSERT INTO GreetingDetails("+detailsList.getgId()+",'"+detailsList.getDate()+"','"+detailsList.getSubject()+"','"+detailsList.getName()+"','"+detailsList.getMailId()+"'"+" where g_Id="+detailsList.getgId()+" ) ON DUPLICATE KEY UPDATE GreetingDetails SET"+ " SP_DATE='"+detailsList.getDate()+"',subject='"+detailsList.getSubject()+"',name='"+detailsList.getName()+"',mail_Id='"+detailsList.getMailId()+"'"+" where g_Id="+detailsList.getgId()+";";
 		try{
 		setDataSource(dataSource);
 			jdbcTemplateObject.update(AppConstants.UPDATE_QUERY, detailsList.getDate(), detailsList.getName(),
