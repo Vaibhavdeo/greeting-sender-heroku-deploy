@@ -36,7 +36,7 @@ public class GreetingSenderService {
     public List<GreetingDetails> getAllDetails(){
     	List<GreetingDetails> listDetails = greetingDao.listGreetingDetails();
     	if(listDetails.isEmpty()){
-    		throw new GreetingServiceException("No Details Found");
+    		//throw new GreetingServiceException("No Details Found");
     	}
 		return listDetails;
     	
